@@ -1,7 +1,7 @@
 {
   "name": "vue-gapi-example",
   "version": "0.1.0",
-  "description": "Example project how to use the vue-gapi plugin. The application uses Vuetify.",
+  "description": "Example application how to use the vue-gapi plugin. The application uses Vuetify.",
   "author": "nidkil <info@nidkil.com>",
   "scripts": {
     "serve": "vue-cli-service serve --colorsgoo",
