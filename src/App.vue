@@ -100,7 +100,7 @@ export default {
   created() {
     try {
       // NOTE: Google recommends 45 min refresh policy
-      window.setInterval(this.$refreshToken(), 1000 * 60 * 45);
+      window.setInterval(this.$gapi.refreshToken(), 1000 * 60 * 45);
     } catch (e) {
       console.error(e);
     }

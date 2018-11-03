@@ -33,80 +33,87 @@
           </v-btn>
         </v-layout>
       </v-flex>
-      <v-flex
-          v-if="userData"
-          mb-5
-          xs12
-      >
+      <v-flex mb-5 xs12>
         <v-subheader>User data</v-subheader>
-        <v-expansion-panel>
-          <v-expansion-panel-content>
-            <v-layout
-              slot="header"
-              align-center
-              row
-              spacer
-            >
-              <v-flex xs4 sm2 md1>
-                <v-avatar
-                  slot="activator"
-                  size="36px"
-                >
-                  <img
-                    :src="userData.imageUrl"
-                    alt="User's photo"
-                  >
-                </v-avatar>
-              </v-flex>
-
-              <v-flex sm5 md3 hidden-xs-only>
-                <strong v-html="userData.fullName"></strong>
-              </v-flex>
-
-              <v-flex no-wrap xs5 sm3>
-                {{ userData.lastName }},
-                <strong>{{ userData.firstName }}</strong>
-              </v-flex>
-
-              <v-flex
-                class="grey--text"
-                ellipsis
-                hidden-sm-and-down
+        <div v-if="userData">
+          <v-expansion-panel>
+            <v-expansion-panel-content>
+              <v-layout
+                  slot="header"
+                  align-center
+                  row
+                  spacer
               >
-                {{ userData.email }}
-              </v-flex>
-            </v-layout>
+                <v-flex xs4 sm2 md1>
+                  <v-avatar
+                      slot="activator"
+                      size="36px"
+                  >
+                    <img
+                        :src="userData.imageUrl"
+                        alt="User's photo"
+                    >
+                  </v-avatar>
+                </v-flex>
 
-            <v-card>
-              <v-divider></v-divider>
-              <v-card-text>
-                <v-layout
-                    align-center
-                    row
-                    spacer
-                    v-for="(item, idx) in otherItems"
-                    :key="idx"
-                >
-                  <v-flex no-wrap sm4 md2>
-                    {{ item }}:
-                  </v-flex>
-                  <v-flex
-                    no-wrap sm8 md10
+                <v-flex sm5 md3 hidden-xs-only>
+                  <strong v-html="userData.fullName"></strong>
+                </v-flex>
+
+                <v-flex no-wrap xs5 sm3>
+                  {{ userData.lastName }},
+                  <strong>{{ userData.firstName }}</strong>
+                </v-flex>
+
+                <v-flex
+                    class="grey--text"
                     ellipsis
                     hidden-sm-and-down
+                >
+                  {{ userData.email }}
+                </v-flex>
+              </v-layout>
+
+              <v-card>
+                <v-divider></v-divider>
+                <v-card-text>
+                  <v-layout
+                      align-center
+                      row
+                      spacer
+                      v-for="(item, idx) in otherItems"
+                      :key="idx"
                   >
-                    <v-tooltip bottom>
+                    <v-flex no-wrap sm4 md2>
+                      {{ item }}:
+                    </v-flex>
+                    <v-flex
+                        no-wrap sm8 md10
+                        ellipsis
+                        hidden-sm-and-down
+                    >
+                      <v-tooltip bottom>
                       <span slot="activator">
                         <strong>{{ item === 'expiresAt' ? convertEpochToDateTime(userData[item]) : userData[item] }}</strong>
                       </span>
-                      <span>{{ userData[item] }}</span>
-                    </v-tooltip>
-                  </v-flex>
-                </v-layout>
-              </v-card-text>
-            </v-card>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
+                        <span>{{ userData[item] }}</span>
+                      </v-tooltip>
+                    </v-flex>
+                  </v-layout>
+                </v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </div>
+        <div v-else>
+          <v-list class="elevation-1">
+            <v-list-tile>
+              <v-list-tile-content class="body-1">
+                N/A
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </div>
       </v-flex>
       <v-flex
           v-if="offlineAccessCode"
@@ -151,8 +158,8 @@ export default {
       this.$copyText(this.offlineAccessCode);
     },
     login() {
-      if (!this.$isAuthenticated()) {
-        this.$login()
+      if (!this.$gapi.isAuthenticated()) {
+        this.$gapi.login()
           .then(() => {
             console.log("Successfully authenticated");
             this.authenticated = true;
@@ -164,10 +171,10 @@ export default {
       }
     },
     getOfflineAccessCode() {
-      this.$grantOfflineAccess()
+      this.$gapi.grantOfflineAccess()
         .then(() => {
           console.log("Successfully retrieved offline access token");
-          this.offlineAccessCode = this.$getOfflineAccessCode();
+          this.offlineAccessCode = this.$gapi.getOfflineAccessCode();
         })
         .catch(err => {
           console.error("Offline access code call failed: %s", err.message);
@@ -175,7 +182,7 @@ export default {
     },
     logout() {
       if (this.$isAuthenticated()) {
-        this.$logout()
+        this.$gapi.logout()
           .then(() => {
             console.log("Successfully logged out");
             this.authenticated = false;
@@ -188,8 +195,8 @@ export default {
     }
   },
   created() {
-    this.authenticated = this.$isAuthenticated();
-    if (this.$isAuthenticated()) this.userData = this.$getUserData();
+    this.authenticated = this.$gapi.isAuthenticated();
+    if (this.$gapi.isAuthenticated()) this.userData = this.$gapi.getUserData();
   }
 };
 </script>
