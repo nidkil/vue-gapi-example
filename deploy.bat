@@ -1,8 +1,8 @@
 @echo off
 
-echo -------- Switch to branch: gh-pages --------
+echo -------- Switch to branch: master --------
 
-git checkout deploy
+git checkout master
 
 echo -------- Build project --------
 
@@ -15,9 +15,5 @@ mv dist docs
 echo -------- Add and commit build to branch: gh-pages --------
 
 git add -A
-git commit -m 'Deploy GitHub pages'
-git push -u orgin master:gh-pages
-
-echo -------- Switch to branch: master --------
-
-git checkout master
+git commit -m "Deploy GitHub pages"
+git push -u orgin master
