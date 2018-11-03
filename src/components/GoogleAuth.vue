@@ -164,11 +164,13 @@ export default {
         this.$gapi
           .login()
           .then(() => {
+            // eslint-disable-next-line no-console
             console.log("Successfully authenticated");
             this.authenticated = true;
             this.userData = this.$getUserData();
           })
           .catch(err => {
+            // eslint-disable-next-line no-console
             console.error("Login call failed: %s", err.message);
           });
       }
@@ -177,10 +179,12 @@ export default {
       this.$gapi
         .grantOfflineAccess()
         .then(() => {
+          // eslint-disable-next-line no-console
           console.log("Successfully retrieved offline access token");
           this.offlineAccessCode = this.$gapi.getOfflineAccessCode();
         })
         .catch(err => {
+          // eslint-disable-next-line no-console
           console.error("Offline access code call failed: %s", err.message);
         });
     },
@@ -189,11 +193,13 @@ export default {
         this.$gapi
           .logout()
           .then(() => {
+            // eslint-disable-next-line no-console
             console.log("Successfully logged out");
             this.authenticated = false;
             this.userData = null;
           })
           .catch(err => {
+            // eslint-disable-next-line no-console
             console.error("Logout call failed: %s", err.message);
           });
       }

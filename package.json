@@ -5,8 +5,9 @@
   "author": "nidkil <info@nidkil.com>",
   "scripts": {
     "serve": "vue-cli-service serve --colorsgoo",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build --production",
+    "lint": "vue-cli-service lint",
+    "deploy": "npm run build --production; push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "dependencies": {
     "moment": "^2.22.2",
@@ -26,6 +27,7 @@
     "eslint": "^5.8.0",
     "eslint-config-vue": "^2.0.2",
     "eslint-plugin-vue": "^5.0.0-0",
+    "push-dir": "^0.4.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-cli-plugin-vuetify": "^0.4.5",

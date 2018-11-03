@@ -102,6 +102,7 @@ export default {
       // NOTE: Google recommends 45 min refresh policy
       window.setInterval(this.$gapi.refreshToken(), 1000 * 60 * 45);
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.error(e);
     }
   }
