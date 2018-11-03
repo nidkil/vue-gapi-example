@@ -127,9 +127,18 @@
               {{ offlineAccessCode }}
             </v-list-tile-content>
             <v-list-tile-action>
-              <v-btn icon ripple @click="doCopy" :disabled="offlineAccessCode === 'N/A'">
-                <img :src="require('@/assets/content_copy_48px.svg')" width="18" />
-              </v-btn>
+              <v-tooltip bottom>
+                <v-btn
+                    slot="activator"
+                    icon
+                    ripple
+                    @click="doCopy"
+                    :disabled="offlineAccessCode === 'N/A'"
+                >
+                  <img :src="require('@/assets/content_copy_48px.svg')" width="18" />
+                </v-btn>
+                <span>Copy offline access code</span>
+              </v-tooltip>
             </v-list-tile-action>
           </v-list-tile>
         </v-list>

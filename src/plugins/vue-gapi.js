@@ -1,14 +1,14 @@
 import Vue from "vue";
 import VueGAPI from "vue-gapi";
 
-const apiKey = process.env.VUE_APP_GOOGLE_API_KEY;
-const clientId = process.env.VUE_APP_GOOGLE_CLIENT_ID;
+const apiKey = process.env.VUE_APP_GAPI_API_KEY;
+const clientId = process.env.VUE_APP_GAPI_CLIENT_ID;
 
 if (!apiKey || !clientId) {
   throw new Error(
-    "Has the .env.local file been setup? One or both variables are not set: VUE_APP_GOOGLE_API_KEY=" +
+    "Has the .env.local file been setup? One or both variables are not set: VUE_APP_GAPI_API_KEY=" +
       apiKey +
-      ", VUE_APP_GOOGLE_CLIENT_ID=" +
+      ", VUE_APP_GAPI_CLIENT_ID=" +
       clientId
   );
 }
