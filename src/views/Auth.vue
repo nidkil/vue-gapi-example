@@ -1,13 +1,13 @@
 <template>
-  <hello />
+  <google-auth />
 </template>
 
 <script>
-import Hello from "../components/Hello";
+import GoogleAuth from "../components/GoogleAuth";
 
 export default {
   components: {
-    Hello
+    GoogleAuth
   }
 };
 </script>

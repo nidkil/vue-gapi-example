@@ -1,7 +1,10 @@
 import Vue from "vue";
+import "./plugins/vuetify";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import "./plugins/vue-gapi";
+import "./plugins/vue-clipboard-2";
 
 Vue.config.productionTip = false;
 
