@@ -16,4 +16,4 @@ echo -------- Add and commit build to branch: gh-pages --------
 
 git add -A
 git commit -m "Deploy GitHub pages"
-git push -u orgin master
+git push -u origin master
