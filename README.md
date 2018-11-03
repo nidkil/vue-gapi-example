@@ -29,16 +29,18 @@
 6. In the sidebar under `APIs & Services`, select `Library`, then enter `Calendar` in the search field. Click on Google Calendar API and in the next screen click the `Enable` button.      
 
 > IMPORTANT
-> This is the simple setup. When moving to production make sure you set restrictions on both the API Key and OAuth Client ID to avoid misuse of your key and id! I strongly advise you to restrict use to explicit domains and for specific APIs. You have been warned :-)
+> This is the simple setup. When moving to production make sure you set restrictions on both the API Key and OAuth Client ID to avoid misuse of your API Key and Client ID! I strongly advise you to restrict use to explicit domains and for specific APIs. You have been warned :-)
   
 #### Create .env.local file        
  Add the API Key and Client ID you created in the previous step to the file .env.local in the root directory of the project.
 
-> Note: Please not that the prefix VUE_APP_ is mandatory for Vue to pick op the settings)        
+> NOTE
+> Please note that the prefix VUE_APP_ is mandatory for Vue to pick op the settings in the .env.local file.     
  
 - Rename the .env.local.tpl file to .env.local  
 - Add your API Key and Client ID to the entries
-    ```
+
+  ```
   VUE_APP_GOOGLE_API_KEY=the-api-key-you-created
   VUE_APP_GOOGLE_CLIENT_ID=the-client-id-you-created
   ```

@@ -146,12 +146,14 @@ export default {
   data: () => ({
     authenticated: false,
     userData: null,
-    offlineAccessCode: 'N/A',
+    offlineAccessCode: "N/A",
     otherItems: ["id", "expiresAt", "accessToken", "idToken"]
   }),
   methods: {
     convertEpochToDateTime(epoch) {
-      const dt = moment().utc(epoch).local();
+      const dt = moment()
+        .utc(epoch)
+        .local();
       return dt.format("ddd, D MMM YYYY, hh:mm:ss");
     },
     doCopy() {
@@ -159,7 +161,8 @@ export default {
     },
     login() {
       if (!this.$gapi.isAuthenticated()) {
-        this.$gapi.login()
+        this.$gapi
+          .login()
           .then(() => {
             console.log("Successfully authenticated");
             this.authenticated = true;
@@ -171,7 +174,8 @@ export default {
       }
     },
     getOfflineAccessCode() {
-      this.$gapi.grantOfflineAccess()
+      this.$gapi
+        .grantOfflineAccess()
         .then(() => {
           console.log("Successfully retrieved offline access token");
           this.offlineAccessCode = this.$gapi.getOfflineAccessCode();
@@ -182,7 +186,8 @@ export default {
     },
     logout() {
       if (this.$isAuthenticated()) {
-        this.$gapi.logout()
+        this.$gapi
+          .logout()
           .then(() => {
             console.log("Successfully logged out");
             this.authenticated = false;
