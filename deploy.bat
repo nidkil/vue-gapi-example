@@ -1,15 +1,8 @@
 @echo off
 
-echo -------- Switch to branch: master --------
-
-git checkout master
-
-echo -------- Build project --------
-
-npm run build
-
 echo -------- Changed directory from dist to docs --------
 
+rm -rf docs
 mv dist docs
 
 echo -------- Add and commit build to branch: gh-pages --------

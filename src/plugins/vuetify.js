@@ -1,9 +1,21 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
+import {
+  VApp, // required
+  VNavigationDrawer,
+  VFooter,
+  VToolbar
+} from "vuetify/lib";
 import "@/stylus/main.styl";
 
 Vue.use(Vuetify, {
   iconfont: "md",
+  components: {
+    VApp,
+    VNavigationDrawer,
+    VFooter,
+    VToolbar
+  },
   theme: {
     primary: "#EBB94F",
     secondary: "#424242",
