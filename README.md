@@ -1,7 +1,7 @@
 
   
 # vue-gapi-example    
- [![npm](https://img.shields.io/npm/v/vue-gapi.svg)](https://www.npmjs.com/package/vue-gapi) ![vue2](https://img.shields.io/badge/vue-2.5.x-brightgreen.svg) ![vue2](https://img.shields.io/badge/vuetify-1.3.x-brightgreen.svg) ![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)  
+ [![npm](https://img.shields.io/npm/v/vue-gapi.svg)](https://www.npmjs.com/package/vue-gapi) ![vue2](https://img.shields.io/badge/vue-2.5.x-brightgreen.svg) ![vue2](https://img.shields.io/badge/vuetify-1.3.x-brightgreen.svg) ![license](https://img.shields.io/badge/license-MIT-green.svg)  
 
 > Example application how to use the vue-gapi plugin. The application uses Vuetify.      
  ## Setup        

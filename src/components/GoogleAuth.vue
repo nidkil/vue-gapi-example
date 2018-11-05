@@ -90,7 +90,6 @@
                     <v-flex
                         no-wrap sm8 md10
                         ellipsis
-                        hidden-sm-and-down
                     >
                       <v-tooltip bottom>
                       <span slot="activator">
@@ -176,7 +175,7 @@ export default {
             // eslint-disable-next-line no-console
             console.log("Successfully authenticated");
             this.authenticated = true;
-            this.userData = this.$getUserData();
+            this.userData = this.$gapi.getUserData();
           })
           .catch(err => {
             // eslint-disable-next-line no-console
@@ -198,7 +197,7 @@ export default {
         });
     },
     logout() {
-      if (this.$isAuthenticated()) {
+      if (this.$gapi.isAuthenticated()) {
         this.$gapi
           .logout()
           .then(() => {

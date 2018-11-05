@@ -13,7 +13,6 @@
     "moment": "^2.22.2",
     "vue": "^2.5.17",
     "vue-clipboard2": "^0.2.1",
-    "vue-gapi": "git+https://github.com/nidkil/vue-gapi.git#temp_merged_branch",
     "vue-router": "^3.0.1",
     "vuetify": "^1.3.5",
     "vuex": "^3.0.1"

@@ -19,6 +19,12 @@
       </v-btn>
       <v-btn
           flat
+          to="/calendar"
+      >
+        <span class="mr-0">Calendar</span>
+      </v-btn>
+      <v-btn
+          flat
           to="/about"
       >
         <span class="mr-0">About</span>

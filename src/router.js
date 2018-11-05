@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
-import Auth from "./views/Auth.vue";
-import PageNotFound from "./views/PageNotFound.vue";
+import Home from "./views/Home";
+import Auth from "./views/Auth";
+import Calendar from "./views/Calendar";
+import PageNotFound from "./views/PageNotFound";
 
 Vue.use(Router);
 
@@ -27,6 +28,11 @@ export default new Router({
       path: "/auth",
       name: "Auth",
       component: Auth
+    },
+    {
+      path: "/calendar",
+      name: "Calendar",
+      component: Calendar
     },
     {
       path: "/about",
